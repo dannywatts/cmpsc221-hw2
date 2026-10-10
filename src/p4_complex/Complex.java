@@ -28,7 +28,7 @@ public class Complex {
     @Override
     public String toString() {return real + " + " + imaginary + "*i";}
 
-    @Override
+    // @Override
     public boolean equals(Complex complex) {
         return real == complex.getReal() && imaginary == complex.getImaginary();
     }
