@@ -19,24 +19,6 @@ public class Main {
                 Arrays.asList(new Fraction(0, 1), new Fraction(1, 1))
         );
 
-        // Calculate the Farey fractions of level 2
-        /*ListIterator<Fraction> iterator = fractions.listIterator();
-        while (iterator.hasNext()) {
-            Fraction f1 = iterator.next();
-            if (iterator.hasNext()) {
-                Fraction f2 = iterator.next();
-                System.out.printf("PASS: %s %s\n", f1, f2);
-                System.out.printf("c + d = %d + %d = %d\n", f1.getDenominator(), f2.getDenominator(), f1.getDenominator() + f2.getDenominator());
-                System.out.printf("n = %d\n", n);
-                if (f1.getDenominator() + f2.getDenominator() <= n) {
-                    iterator.previous();
-                    iterator.add(new Fraction(f1.getNumerator() + f2.getNumerator(), f1.getDenominator() + f2.getDenominator()));
-                    iterator.next();
-                }
-            }
-        }
-        System.out.printf("RESULT: %s\n", fractions);*/
-
         // Calculate the Farey fractions from level 2 to level n
         for (int i = 2; i < n + 1; i++) {
             ListIterator<Fraction> iterator = fractions.listIterator();
@@ -44,17 +26,15 @@ public class Main {
                 Fraction f1 = iterator.next();
                 if (iterator.hasNext()) {
                     Fraction f2 = iterator.next();
-//                    System.out.printf("PASS: %s %s\n", f1, f2);
-//                    System.out.printf("c + d = %d + %d = %d\n", f1.getDenominator(), f2.getDenominator(), f1.getDenominator() + f2.getDenominator());
-//                    System.out.printf("n = %d\n", i);
                     if (f1.getDenominator() + f2.getDenominator() <= i) {
                         iterator.previous();
                         iterator.add(new Fraction(f1.getNumerator() + f2.getNumerator(), f1.getDenominator() + f2.getDenominator()));
-                        iterator.next();
                     }
                 }
             }
-            System.out.printf("RESULT: %s\n", fractions);
         }
+
+        // Output result to user
+        System.out.printf("The Farey fractions of level %d are %s.\n", n, fractions);
     }
 }
