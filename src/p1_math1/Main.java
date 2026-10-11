@@ -26,8 +26,8 @@ public class Main {
                 Fraction f1 = iterator.next();
                 if (iterator.hasNext()) {
                     Fraction f2 = iterator.next();
+                    iterator.previous();
                     if (f1.getDenominator() + f2.getDenominator() <= i) {
-                        iterator.previous();
                         iterator.add(new Fraction(f1.getNumerator() + f2.getNumerator(), f1.getDenominator() + f2.getDenominator()));
                     }
                 }

@@ -35,6 +35,6 @@ public class Main {
         System.out.printf("You travelled %.2f miles.\n", tdt);
 
         // Compute average speed in mph and output to user
-        System.out.printf("Your average speed was %.2f mph.\n", tdt / ((double) waypoints.getLast().getTimestamp() / 3600));
+        System.out.printf("Your average speed was %.2f mph.\n", tdt / (((double) waypoints.getLast().getTimestamp() - waypoints.getFirst().getTimestamp()) / 3600));
     }
 }
