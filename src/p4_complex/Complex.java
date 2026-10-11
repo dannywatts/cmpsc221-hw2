@@ -6,6 +6,11 @@ public class Complex {
     private double imaginary;
 
     // Constructors
+    public Complex() {
+        this.real = 0;
+        this.imaginary = 0;
+    }
+
     public Complex(double real) {
         this.real = real;
         this.imaginary = 0;
@@ -28,8 +33,19 @@ public class Complex {
     @Override
     public String toString() {return real + " + " + imaginary + "*i";}
 
-    // @Override
-    public boolean equals(Complex complex) {
-        return real == complex.getReal() && imaginary == complex.getImaginary();
+    public boolean equals(Complex complex) {return real == complex.real && imaginary == complex.imaginary;}
+
+    // Static methods
+    public static Complex addition(Complex addend1, Complex addend2) {
+        return new Complex(addend1.real + addend2.real, addend1.imaginary + addend2.imaginary);
+    }
+
+    public static Complex subtraction(Complex minuend, Complex subtrahend) {
+        return new Complex(minuend.real - subtrahend.real, minuend.imaginary - subtrahend.imaginary);
+    }
+
+    public static Complex multiplication(Complex factor1, Complex factor2) {
+        // a = f1.real, b=f1.imag, c=f2.real, d=f2.imag
+        return new Complex(factor1.real * factor2.real - factor1.imaginary * factor2.imaginary, factor1.real * factor2.imaginary + factor1.imaginary * factor2.real);
     }
 }
