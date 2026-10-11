@@ -10,12 +10,11 @@ public class Main {
 
         // Let user input each character
         Stack<String> stack = new Stack<>();
-        String input;
         do {
             System.out.print("Enter a character or leave blank to end: ");
-            input = scanner.nextLine();
-            stack.push(input);
-        } while (!input.equals(""));
+            stack.push(scanner.nextLine());
+        } while (!stack.peek().isEmpty());
+        stack.pop();
 
         System.out.println(stack);
     }
